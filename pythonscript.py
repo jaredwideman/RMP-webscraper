@@ -8,11 +8,10 @@ import cgitb, cgi
 import urllib2
 cgitb.enable()
 
-
-
 print "Content-Type: text/plain;charset=utf-8"
 print	
 
+# Use forms to gather professor's name
 form = cgi.FieldStorage()
 fname = form.getvalue('fname')
 lname = form.getvalue('lname')
@@ -22,6 +21,7 @@ pageUrl = "http://ratemyprofessors.com/find/professor/?department=&page=1&query=
 response = urllib2.urlopen(pageUrl)
 html = response.read()
 
+# Print gathered html to page for extraction
 print html
 
 
